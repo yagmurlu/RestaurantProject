@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class Menu:IEntity
+    public class Product:IEntity
     {
-        public int MenuId { get; set; }
-        public string MenuName { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
         public string Description { get; set; }
+        public string Image { get; set; }
+        public string Price { get; set; }
+
     }
 }
