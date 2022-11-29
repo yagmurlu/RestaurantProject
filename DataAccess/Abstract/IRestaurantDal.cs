@@ -7,12 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IRestaurantDal
+    public interface IRestaurantDal:IEntityRepository<Restaurant>
     {
-        List<Restaurant> GetAll();
-        void Add(Restaurant restaurant);
-        void Update(Restaurant restaurant);
-        void Delete(Restaurant restaurant);
-        List<Restaurant> GetAllByCategory(int id);
     }
 }

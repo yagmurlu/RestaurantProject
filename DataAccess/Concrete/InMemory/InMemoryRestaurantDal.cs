@@ -3,6 +3,7 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -52,9 +53,19 @@ namespace DataAccess.Concrete.InMemory
             _restaurants.Remove(restaurantToDelete);
         }
 
+        public Restaurant Get(Expression<Func<Restaurant, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Restaurant> GetAll()
         {
             return _restaurants;
+        }
+
+        public List<Restaurant> GetAll(Expression<Func<Restaurant, bool>> filter = null)
+        {
+            throw new NotImplementedException();
         }
 
         public List<Restaurant>GetAllByCategory(int id)

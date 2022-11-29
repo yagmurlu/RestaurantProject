@@ -14,6 +14,7 @@ namespace Entities.Concrete
         public string Description { get; set; }
         public string Address { get; set; }
         public int PhoneNumber { get; set; }
+        public int CategoryId { get; set; }
 
     }
 }

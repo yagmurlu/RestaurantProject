@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.Concrete;
+using DataAccess.Concrete.InMemory;
+using System;
 
 namespace ConsoleUI
 {
@@ -6,7 +8,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            RestaurantManager restaurantManager = new RestaurantManager(new InMemoryRestaurantDal());
+            foreach (var item in restaurantManager.GetAll())
+            {
+                Console.WriteLine(item.RestaurantName);
+            }
+           
         }
     }
 }
