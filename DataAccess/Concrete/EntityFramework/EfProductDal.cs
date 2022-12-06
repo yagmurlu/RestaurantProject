@@ -11,9 +11,16 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfProductDal : IProductDal
     {
+        IProductDal _productDal;
+
+        public EfProductDal(IProductDal productDal)
+        {
+            _productDal = productDal;
+        }
+
         public void Add(Product entity)
         {
-            throw new NotImplementedException();
+            _productDal.Add(entity);
         }
 
         public void Delete(Product entity)
