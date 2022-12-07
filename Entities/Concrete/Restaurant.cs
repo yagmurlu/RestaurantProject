@@ -13,8 +13,7 @@ namespace Entities.Concrete
         public string RestaurantName { get; set; }
         public string Description { get; set; }
         public string Address { get; set; }
-        public int PhoneNumber { get; set; }
-        public int CategoryId { get; set; }
+        public int PhoneNumber { get; set; } 
 
     }
 }

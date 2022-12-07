@@ -28,7 +28,10 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<Restaurant> GetAll(Expression<Func<Restaurant, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            using (RestaurantContext context = new RestaurantContext())
+            {
+                return filter == null ? context.Set<Restaurant>().ToList() : context.Set<Restaurant>().Where(filter).ToList();
+            }
         }
 
         public void Update(Restaurant entity)

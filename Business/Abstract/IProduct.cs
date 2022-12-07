@@ -1,4 +1,5 @@
 ﻿
+using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace Business.Abstract
 {
     public interface IProduct
     {
+        void Add(Product product);
     }
 }
