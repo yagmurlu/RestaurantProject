@@ -1,4 +1,5 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,34 +10,8 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfRestaurantDal : IRestaurantDal
+    public class EfRestaurantDal : EfEntityRepositoryBase<Restaurant, RestaurantContext>, IRestaurantDal
     {
-        public void Add(Restaurant entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(Restaurant entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Restaurant Get(Expression<Func<Restaurant, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Restaurant> GetAll(Expression<Func<Restaurant, bool>> filter = null)
-        {
-            using (RestaurantContext context = new RestaurantContext())
-            {
-                return filter == null ? context.Set<Restaurant>().ToList() : context.Set<Restaurant>().Where(filter).ToList();
-            }
-        }
-
-        public void Update(Restaurant entity)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

@@ -10,6 +10,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class RestaurantContext:DbContext
     {
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=YAGMUR\SQLEXPRESS;Database=Restaurant;Trusted_Connection=true");
