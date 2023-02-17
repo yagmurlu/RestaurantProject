@@ -12,7 +12,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=YAGMUR;Database=Restaurant;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=YAGMUR\SQLEXPRESS;Database=Restaurant;Trusted_Connection=true");
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
