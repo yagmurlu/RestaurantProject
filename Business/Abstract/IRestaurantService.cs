@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IRestaurant
+    public interface IRestaurantService
     {
         List<Restaurant> GetAll();
 

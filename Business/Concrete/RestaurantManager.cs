@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class RestaurantManager : IRestaurant
+    public class RestaurantManager : IRestaurantService
     {
         IRestaurantDal _restaurantDal;
 

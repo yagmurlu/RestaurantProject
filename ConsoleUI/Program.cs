@@ -9,7 +9,12 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            RestaurantTest();
+            ProductManager productManager = new ProductManager(new EfProductDal());
+            foreach (var item in productManager.GetProductDetails())
+            {
+                Console.WriteLine(item.ProductName+" / "+item.CategoryName);
+            }
+            //RestaurantTest();
 
 
             //CategoryTest();
