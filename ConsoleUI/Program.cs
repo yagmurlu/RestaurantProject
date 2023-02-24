@@ -1,6 +1,7 @@
 ﻿using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.InMemory;
+using Entities.Concrete;
 using System;
 
 namespace ConsoleUI
@@ -9,15 +10,34 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            //RestaurantCRUDtest();
+            //ProductTest();
+            //RestaurantTest();
+            //CategoryTest();
+        }
+
+        private static void RestaurantCRUDtest()
+        {
+            RestaurantManager restaurantManager = new RestaurantManager(new EfRestaurantDal());
+            restaurantManager.Add(new Restaurant { RestaurantName = "Lokmacı", Address = "Kağıthane", Description = "7/24", PhoneNumber = 025565 });
+            restaurantManager.Update(new Restaurant
+            {
+                RestaurantId = 3,
+                RestaurantName = "LOKUMCUM",
+                Address = "Kağıthane",
+                Description = "7/24",
+                PhoneNumber = 025565
+            });
+            restaurantManager.Delete(new Restaurant { RestaurantId = 4 });
+        }
+
+        private static void ProductTest()
+        {
             ProductManager productManager = new ProductManager(new EfProductDal());
             foreach (var item in productManager.GetProductDetails())
             {
-                Console.WriteLine(item.ProductName+" / "+item.CategoryName);
+                Console.WriteLine(item.ProductName + " / " + item.CategoryName);
             }
-            //RestaurantTest();
-
-
-            //CategoryTest();
         }
 
         private static void CategoryTest()

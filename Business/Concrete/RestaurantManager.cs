@@ -19,10 +19,24 @@ namespace Business.Concrete
             _restaurantDal = restaurantDal;
         }
 
+        public void Add(Restaurant restaurant)
+        {
+            _restaurantDal.Add(restaurant);
+        }
+
+        public void Delete(Restaurant restaurant)
+        {
+            _restaurantDal.Delete(restaurant);  
+        }
+
         public List<Restaurant> GetAll()
         {
             return _restaurantDal.GetAll();
         }
 
+        public void Update(Restaurant restaurant)
+        {
+            _restaurantDal.Update(restaurant);
+        }
     }
 }

@@ -10,6 +10,9 @@ namespace Business.Abstract
     public interface IRestaurantService
     {
         List<Restaurant> GetAll();
+        void Add(Restaurant restaurant);
+        void Update(Restaurant restaurant);
+        void Delete(Restaurant restaurant);
 
     }
 }
