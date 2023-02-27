@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -22,28 +23,41 @@ namespace Business.Concrete
 
         public IResult Add(Product product)
         {
+            
+            if (product.ProductName.Length<2)
+            {
+                return new ErrorResult(Messages.ProductNameInValid);
+            }
             _productDal.Add(product);
-            return new Result(true,"ürün eklendi");
+            return new SuccessResult(Messages.ProductAdded);
         }
 
-        public List<Product> GetAll()
+        public IDataResult<List<Product>> GetAll()
         {
-            return _productDal.GetAll();
+            if (DateTime.Now.Hour==22)
+            {
+                return new ErrorDataResult<List<Product>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(),Messages.ProductListed);
         }
 
-        public List<Product> GetAllByCategoryId(int categoryId)
+        public IDataResult<List<Product>> GetAllByCategoryId(int categoryId)
         {
-            return _productDal.GetAll(c=>c.CategoryId == categoryId);
+            return new SuccessDataResult<List<Product>>( _productDal.GetAll(c=>c.CategoryId == categoryId));
         }
 
-        public Product GetById(int id)
+        public IDataResult<Product> GetById(int id)
         {
-            return _productDal.Get(x=>x.ProductId== id);
+            return new SuccessDataResult<Product>( _productDal.Get(x=>x.ProductId== id));
         }
 
-        public List<ProductDetailDto> GetProductDetails()
+        public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            return _productDal.GetProductDetails();
+            if (DateTime.Now.Hour == 00)
+            {
+                return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<ProductDetailDto>>( _productDal.GetProductDetails());
         }
 
       

@@ -12,9 +12,9 @@ namespace Business.Abstract
     public interface IProductService
     {
         IResult Add(Product product);
-        List<Product> GetAll();
-        Product GetById(int id);    
-        List<Product> GetAllByCategoryId(int categoryId);
-        List<ProductDetailDto> GetProductDetails();
+        IDataResult<List<Product>> GetAll();
+        IDataResult<Product> GetById(int id);    
+        IDataResult<List<Product>> GetAllByCategoryId(int categoryId);
+        IDataResult<List<ProductDetailDto>> GetProductDetails();
     }
 }

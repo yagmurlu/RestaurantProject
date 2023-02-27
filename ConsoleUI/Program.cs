@@ -11,7 +11,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //RestaurantCRUDtest();
-            //ProductTest();
+            ProductTest();
             //RestaurantTest();
             //CategoryTest();
         }
@@ -34,12 +34,19 @@ namespace ConsoleUI
         private static void ProductTest()
         {
             ProductManager productManager = new ProductManager(new EfProductDal());
-            foreach (var item in productManager.GetProductDetails())
+            var result = productManager.GetProductDetails();
+            if (result.IsSuccess==true)
             {
-                Console.WriteLine(item.ProductName + " / " + item.CategoryName);
+                foreach (var item in result.Data)
+                {
+                    Console.WriteLine(item.ProductName + " / " + item.CategoryName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }         
         }
-
         private static void CategoryTest()
         {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
