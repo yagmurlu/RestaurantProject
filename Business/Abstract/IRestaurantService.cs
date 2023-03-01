@@ -1,4 +1,6 @@
-﻿using Entities.Concrete;
+﻿using Core.Utilities.Results;
+using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,11 @@ namespace Business.Abstract
 {
     public interface IRestaurantService
     {
-        List<Restaurant> GetAll();
-        void Add(Restaurant restaurant);
-        void Update(Restaurant restaurant);
-        void Delete(Restaurant restaurant);
-
+        IResult Add(Restaurant restaurant);
+        IResult Delete(Restaurant restaurant);
+        IResult Update(Restaurant restaurant);
+        IDataResult<List<Restaurant>> GetAll();
+        IDataResult<Restaurant> GetById(int id);
+        IDataResult<List<RestaurantDetailDto>> GetRestaurantDetails();
     }
 }
