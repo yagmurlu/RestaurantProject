@@ -57,5 +57,5 @@ namespace Business.Concrete
             _restaurantDal.Update(restaurant);
             return new SuccessResult();
         }
-    }
+    }                                                                                                
 }
