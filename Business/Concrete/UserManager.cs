@@ -39,8 +39,8 @@ namespace Business.Concrete
 
         public IDataResult<List<Users>> GetAll()
         {
-            _userDal.GetAll();
-            return new SuccessDataResult<List<Users>>();
+            //_userDal.GetAll();
+            return new SuccessDataResult<List<Users>>(_userDal.GetAll());
         }
 
         public IDataResult<Users> GetById(int id)

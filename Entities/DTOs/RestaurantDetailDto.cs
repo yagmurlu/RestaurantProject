@@ -11,5 +11,7 @@ namespace Entities.DTOs
     {
         public int RestaurantId { get; set; }
         public string RestaurantName { get; set; }
+        public string ProductName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

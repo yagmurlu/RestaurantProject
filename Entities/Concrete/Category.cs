@@ -13,6 +13,6 @@ namespace Entities.Concrete
         public string CategoryName { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
-        
+        public int RestaurantId { get; set; } // SONRADAN EKLENDİ 2.03.23
     }
 }

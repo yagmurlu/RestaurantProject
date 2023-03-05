@@ -34,14 +34,14 @@ namespace Business.Concrete
 
         public IDataResult<List<Category>> GetAll()
         {
-            _categoryDal.GetAll();
-            return new SuccessDataResult<List<Category>>(); 
+           
+            return new SuccessDataResult<List<Category>>(_categoryDal.GetAll()); 
         }
 
         public IDataResult<Category> GetById(int id)
         {
-            _categoryDal.Get(x=>x.CategoryId== id);
-            return new SuccessDataResult<Category>();
+           
+            return new SuccessDataResult<Category>(_categoryDal.Get(x => x.CategoryId == id));
         }
 
         public IResult Update(Category category)
