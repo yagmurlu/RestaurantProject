@@ -4,6 +4,7 @@ using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace WebAPI.Controllers
 {
@@ -11,18 +12,11 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        IProductService _productService;
-
-        public ProductsController(IProductService productService)
-        {
-            _productService = productService;
-        }
-
         [HttpGet]
         public List<Product> Get()
         {
-            
-            var result=_productService.GetAll();
+            IProductService productService = new ProductManager(new EfProductDal());
+            var result=productService.GetAll();
             return result.Data;
         }
     }
